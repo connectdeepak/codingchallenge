@@ -6,11 +6,13 @@ public class DistinctElement {
 	
 	public static void main(String[] args) {
 		
-	//	int[] nums = {15,12,13,12,13,13,18};
+		int[] nums = {15,12,13,12,13,13,18};
 		
-		int[] nums = {13,13,13,13};
+		//int[] nums = {13,13,13,13};
 		
 		System.out.println(distinctCount(nums));
+		
+		System.out.println(distinctCount_naive(nums));
 		
 	}
 	
@@ -22,6 +24,31 @@ public class DistinctElement {
 		}
 		return set.size();
 		
+	}
+	
+	public static int distinctCount_naive(int [] nums) {
+		
+		int result =0;
+		int n = nums.length;
+		
+		for(int i =0 ;i <n ;i++) {
+			
+			boolean seen = false;
+			
+			for(int j=0 ;j<i ;j++) {
+				
+				if(nums[j] == nums[i]) {
+					seen =true;
+				}
+			}
+			
+			if(!seen) {
+				result++;
+			}
+		}
+		return result;
+		
+				
 	}
 
 }

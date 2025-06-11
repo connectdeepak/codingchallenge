@@ -26,25 +26,18 @@ public class FrequencyElements {
 	}
 
 	public static void frequency_naive(int[] nums) {
-
 		int n = nums.length;
-
 		for (int i = 0; i < n; i++) {
-				
 		boolean seenalready = false ;
-		
 		for(int j=0 ;j<i ;j++) {
-			
 			if(nums[i] ==  nums[j]) {
 				seenalready =true;
 				break;
 			}
-			
 		}
 		if(seenalready) {
 			continue ; 
 		}
-		
 		int freq =1;
 		
 		for(int j = i+1 ;j<n ;j++) {
