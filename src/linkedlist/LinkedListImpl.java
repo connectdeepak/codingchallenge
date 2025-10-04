@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class PrintLinkedList {
+public class LinkedListImpl {
 
 	public static void main(String[] args) {
 		
@@ -59,55 +59,49 @@ public class PrintLinkedList {
 	}
 	
 public static Node insertatBegin(Node head , int x) {
-		
-		Node newNode = new Node(x);
-		newNode.next=head;
-		return newNode;
-		
-		
+	Node newNode = new Node(x);
+	newNode.next = head;
+	return newNode;
 	}
 
 public static Node insertatEnd(Node head , int x) {
-	
 	Node newNode = new Node(x);
 	if(head == null) {
 		return newNode;
 	}
-	
-	Node curr = head;
-	while(curr.next!= null) {
-		curr =curr.next;
+	else {
+		
+		Node curr = head;
+		
+		while(curr.next != null) {
+			curr = curr.next;
+		}
+		curr.next = newNode;
+		return head;
 	}
-	curr.next =newNode;
-	return head;
-	
-	
 }
 	
-	public static void printNodes(Node node) {
-		
-		Node curr = node;
-		
+	public static void printNodes(Node head) {
+		Node curr = head;
 		while(curr != null) {
-			
 			System.out.println(curr.data);
 			curr = curr.next;
-			
 		}
 		
 	}
 	
 public static void printNodes_recurssion(Node head) {
-		
-		if(head == null) {
-			return;
-		}
-		else {
-			System.out.println(head.data);
-			head = head.next;
-			printNodes_recurssion(head);
-		}
-		
+	
+	if(head == null) {
+		return;
 	}
+	else {
+		System.out.println(head.data);
+		printNodes_recurssion(head.next);
+	}
+	
+	
+	
+}
 
 }
